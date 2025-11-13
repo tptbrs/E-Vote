@@ -14,8 +14,8 @@ function Navbar() {
         <nav className={`${styles.paddingX} md:py-5 py-3 bg-gray-900`}>
             <div className="flex items-center justify-between">
                 <NavLink to="/" className="flex items-center">
-                    <img src="https://cdn-icons-png.flaticon.com/128/6432/6432236.png?track=ais" className="h-8 mr-1" alt="pollab" />
-                    <span className="self-center text-sm font-semibold text-white">PollLab</span>
+                    <img src="https://cdn-icons-png.flaticon.com/128/6432/6432236.png?track=ais" className="h-8 mr-1" alt="E Vote" />
+                    <span className="self-center text-sm font-semibold text-white">E Vote</span>
                 </NavLink>
                 {/* mapping all the navigation links for the desktop/ tablets screen */}
                 <div className="items-center hidden md:flex">

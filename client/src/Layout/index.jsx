@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useContext, Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
-import { Toaster, toast } from 'sonner';
+import { Toaster } from 'sonner';
 import Navbar from './Navbar'
 import Footer from './Footer'
 import Loader from '../components/Loader';
-import styles from '../styles';
 import { UserContext } from '../UserContext';
 import { LargeSpinLoader } from '../components/Loader/SpinLoader';
 import Container from '../components/Container';
@@ -14,7 +13,6 @@ const Layout = () => {
     const { setUserInfo } = useContext(UserContext);
     const [loading, setLoading] = useState(true)
 
-    // Get user info when the component mounts.
     const getUser = async () => {
         try {
             const res = await fetch(`${apiUrl}/user/me`, {
@@ -30,25 +28,27 @@ const Layout = () => {
             setLoading(false);
         }
     }
+
     useEffect(() => {
         getUser();
     }, []);
+
     return (
-        <div className={`${styles.flexCenter}`}>
-            {
-                loading ? (
-                    <Loader />
-                ) : (
-                    <div className={`${styles.boxWidth}  overflow-hidden`}>
-                        <Navbar />
-                        <Toaster position="top-right" richColors closeButton='true' /> {/* this is the position for showing notification */}
-                        <Suspense fallback={<Container><LargeSpinLoader /></Container>}>
+        <div className="w-full min-h-screen flex flex-col">
+            {loading ? (
+                <Loader />
+            ) : (
+                <>
+                    <Navbar />
+                    <Toaster position="top-right" richColors closeButton='true' />
+                    <Suspense fallback={<Container><LargeSpinLoader /></Container>}>
+                        <main className="w-full flex-grow">
                             <Outlet />
-                        </Suspense>
-                        <Footer />
-                    </div>
-                )
-            }
+                        </main>
+                    </Suspense>
+                    <Footer />
+                </>
+            )}
         </div>
     )
 }

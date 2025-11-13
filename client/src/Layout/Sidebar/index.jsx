@@ -22,20 +22,20 @@ export default function Sidebar({ children }) {
         <aside className={`sm:h-screen ${expanded ? 'h-screen top-0' : 'h-10 sm:overflow-visible'} duration-500 overflow-hidden transition-all flex sm:static fixed z-50`}>
             {/* Logo and toggle button */}
             <nav className={`h-full flex flex-col border-r shadow-sm ${expanded ? ' bg-slate-900' : 'sm:bg-white border-r-0'} duration-500  transition-all`}>
-                <div className="p-4 pb-2 flex justify-between items-center">
-                    <img
-                        src={logo}
-                        className={`overflow-hidden transition-all ${expanded ? "w-28" : "w-0"}`}
-                        alt=""
-                    />
-                    <button
-                        onClick={() => setExpanded((curr) => !curr)}
-                        className={`sm:p-3 rounded-lg bg-gray-100 hover:bg-gray-200 flex items-center justify-center sm:-translate-x-0 sm:translate-y-0 ${!expanded ? 'translate-x-[-22px] translate-y-[-5px]' : ''}`}
-                        title="Click to open Sidebar"
-                    >
-                        {expanded ? <ion-icon name="arrow-back-circle-outline" aria-label="Collapse Sidebar"></ion-icon> : <ion-icon name="arrow-forward-circle-outline" aria-label="Expand Sidebar"></ion-icon>}
-                    </button>
-                </div>
+                <div className="p-3 flex justify-start">
+    <button
+        onClick={() => setExpanded((curr) => !curr)}
+        className="h-10 w-full flex items-center justify-center rounded-md bg-gray-100 hover:bg-gray-200 transition-all duration-300"
+        title={expanded ? "Collapse Sidebar" : "Expand Sidebar"}
+    >
+        {expanded ? (
+            <ion-icon name="arrow-back-circle-outline" aria-label="Collapse Sidebar" />
+        ) : (
+            <ion-icon name="arrow-forward-circle-outline" aria-label="Expand Sidebar" />
+        )}
+    </button>
+</div>
+
 
                 {/* Provide the Sidebar state via context */}
                 <SidebarContext.Provider value={{ expanded }}>

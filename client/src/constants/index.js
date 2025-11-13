@@ -1,5 +1,6 @@
-// here constants can be write which will be use in the components like header navbar etc. 
+// constants.js - cleaned version
 
+// Footer links can stay as they are, or update if needed
 const footerLinks = [
     {
         id: 1,
@@ -11,13 +12,10 @@ const footerLinks = [
         name: 'Privacy Policy',
         linkTo: "policies",
     },
-    {
-        id: 3,
-        name: 'info.polllab.com',
-        linkTo: "about",
-    },
+    
 ]
 
+// Navigation links - removed About, Services, and Contact
 const navLinks = [
     {
         id: 1,
@@ -26,26 +24,12 @@ const navLinks = [
     },
     {
         id: 2,
-        name: 'About',
-        linkTo: "/about",
-    },
-    {
-        id: 3,
-        name: 'Services',
-        linkTo: "/services",
-    },
-    {
-        id: 4,
-        name: 'Contact',
-        linkTo: "/constact",
-    },
-    {
-        id: 5,
         name: 'Poll',
         linkTo: "/poll",
     },
 ]
 
+// Side links remain the same
 const sideLinks = [
     {
         id: 1,
@@ -79,6 +63,7 @@ const sideLinks = [
     },
 ]
 
+// Messages for polls
 const pollMessage = {
     'feeds': 'No Feeds Found',
     'votes': 'You have ZERO votes',

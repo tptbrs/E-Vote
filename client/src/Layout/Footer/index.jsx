@@ -7,7 +7,7 @@ function Footer() {
     return (
         <div className={`${styles.paddingX} bg-gray-900 text-white md:py-5 py-3 flex justify-between items-center text-[14px]`}>
             <p>
-                Copyright Ⓒ 2023 Pollab.<br className='md:hidden' /> All Rights Reserved.
+                Copyright Ⓒ 2025 .<br className='md:hidden' /> All Rights Reserved.
             </p>
             <div>
                 <ul className='flex  flex-col md:flex-row'>

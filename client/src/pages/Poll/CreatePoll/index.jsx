@@ -43,7 +43,7 @@ const CreatePoll = () => {
     }
     return (
         <>
-            <h1 className={`${styles.heading2} mb-6`}>Create Free Poll With PollLab</h1>
+            <h1 className={`${styles.heading2} mb-6`}>Create Poll</h1>
             <PollEditor handleSubmit={handleSubmit} initialData={initialData} reset type='Create' />
         </>
     )
