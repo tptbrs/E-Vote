@@ -12,6 +12,14 @@ exports.createVote = async (req, res) => {
     if (!poll) {
       return sendErrorResponse(res, 404, "Poll not found");
     }
+    const now = new Date();
+if (poll.startDate > now) {
+  return sendErrorResponse(res, 400, "Poll has not started yet");
+}
+if (poll.endDate < now) {
+  return sendErrorResponse(res, 400, "Poll is closed");
+}
+
 
     if (!poll.allowMultipleVotes) {
       const existingVote = await Vote.findOne({ Poll: pollId, User: userId });
@@ -220,4 +228,5 @@ exports.getVoters = async (req, res) => {
   } catch (error) {
     sendErrorResponse(res, 500, error.message);
   }
+
 }
