@@ -58,8 +58,8 @@ const Login = () => {
                     <div className='mb-5'>
                         {/* <img className="h-[50px] w-[150px] mb-5" src={logo} alt="Your Company" /> */}
                         <h2 className="font-bold text-3xl md:text-4xl mb-1">Sign in to account</h2>
-                        <p className="text-[12px] md:text-sm text-slate-600">Not a member? <a href="#" className="text-sky-700">Start a 14 day free trial</a></p>
-                        <p className="text-[12px] md:text-sm text-slate-600">Donot have account then click here <NavLink to='/register' className={`text-sky-600`}>Signup</NavLink> </p>
+                        {/* <p className="text-[12px] md:text-sm text-slate-600">Not a member? <a href="#" className="text-sky-700">Start a 14 day free trial</a></p> */}
+                        <p className="text-[12px] md:text-sm text-slate-600">Don't have account then click here <NavLink to='/register' className={`text-sky-600`}>Signup</NavLink> </p>
                     </div>
                     {/* form div start here */}
                     <div className="w-full md:w-[80%]">
