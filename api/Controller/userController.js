@@ -60,16 +60,18 @@ exports.registerUser = async (req, res) => {
 
     // Set cookie options for the token
     const options = {
-      expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
-      httpOnly: true,
-    };
+  httpOnly: true,
+  secure: true,       // important for HTTPS
+  sameSite: "none",   // allow cross-domain
+  maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
+};
 
-    // Respond with success and user information, along with the token in a cookie
-    res.status(200).cookie("token", token, options).json({
-      success: true,
-      message: "Registered Successfully",
-      user,
-    });
+res.status(200).cookie("token", token, options).json({
+  success: true,
+  message: "Registered Successfully",
+  user,
+});
+
   } catch (error) {
     // Handle any errors that occur during the registration process
     sendErrorResponse(res, 500, error.message);
@@ -93,14 +95,18 @@ exports.loginUser = async (req, res) => {
     if (token) return sendErrorResponse(res, 400, "you are already logged in");
     token = user.generateToken();
     const options = {
-      expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
-      httpOnly: true,
-    };
-    res.status(200).cookie("token", token, options).json({
-      success: true,
-      message: "Loggedin Successfully",
-      user,
-    });
+  httpOnly: true,
+  secure: true,
+  sameSite: "none",
+  maxAge: 30 * 24 * 60 * 60 * 1000,
+};
+
+res.status(200).cookie("token", token, options).json({
+  success: true,
+  message: "Loggedin Successfully",
+  user,
+});
+
   } catch (error) {
     sendErrorResponse(res, 500, error.message);
   }
@@ -112,12 +118,18 @@ exports.logoutUser = async (req, res) => {
     if (!token)
       return sendErrorResponse(res, 401, "you are already logged out");
     res
-      .status(200)
-      .cookie("token", null, { expires: new Date(Date.now()) })
-      .json({
-        success: true,
-        message: "Logged Out successfully",
-      });
+  .status(200)
+  .cookie("token", null, {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+    expires: new Date(Date.now()),
+  })
+  .json({
+    success: true,
+    message: "Logged Out successfully",
+  });
+
   } catch (error) {
     sendErrorResponse(res, 500, error.message);
   }
@@ -539,4 +551,5 @@ exports.getDashboard = async (req, res) => {
     console.error(error);
     sendErrorResponse(res, 500, error.message);
   }
+
 }
