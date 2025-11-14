@@ -13,22 +13,20 @@ export default function lazyLoad(path, namedExport) {
 }
 
 import { UserContextProvider } from "./UserContext";
-
-const Layout = lazyLoad('./Layout/index.jsx');
-const Home = lazyLoad("./pages/Home/index.jsx");
-const NoPage = lazyLoad("./pages/NoPage.jsx");
-const Login = lazyLoad("./pages/Login/index.jsx");
-const Signup = lazyLoad("./pages/Signup/index.jsx");
-const Poll = lazyLoad("./pages/Poll/index.jsx");
-const Dashoard = lazyLoad("./pages/Poll/Dashboard/index.jsx");
-const CreatePoll = lazyLoad("./pages/Poll/CreatePoll/index.jsx");
-const EditPoll = lazyLoad('./pages/Poll/EditPoll/index.jsx');
-const DeletePoll = lazyLoad('./pages/Poll/DeletePoll/index.jsx');
-const MyPolls = lazyLoad("./pages/Poll/MyPolls/index.jsx");
-const MyVotes = lazyLoad("./pages/Poll/MyVotes/index.jsx");
-const MyFeeds = lazyLoad('./pages/MyFeeds/index.jsx');
-const MyProfile = lazyLoad('./pages/MyProfile/index.jsx');
-const IsAuthenticatedUser = lazyLoad('./components/IsAuthenticatedUser/index.jsx');
-
+const Layout = lazyLoad('./Layout');
+const Home = lazyLoad("./pages/Home");
+const NoPage = lazyLoad("./pages/NoPage");
+const Login = lazyLoad("./pages/Login");
+const Signup = lazyLoad("./pages/Signup");
+const Poll = lazyLoad("./pages/Poll");
+const Dashoard = lazyLoad("./pages/Poll/Dashboard");
+const CreatePoll = lazyLoad("./pages/Poll/CreatePoll");
+const EditPoll = lazyLoad('./pages/Poll/EditPoll');
+const DeletePoll = lazyLoad('./pages/Poll/DeletePoll');
+const MyPolls = lazyLoad("./pages/Poll/MyPolls");
+const MyVotes = lazyLoad("./pages/Poll/MyVotes");
+const MyFeeds = lazyLoad('./pages/MyFeeds');
+const MyProfile = lazyLoad('./pages/MyProfile')
+const IsAuthenticatedUser = lazyLoad('./components/IsAuthenticatedUser');
 
 export { NoPage, Layout, Home, Login, Signup, Poll, Dashoard, CreatePoll, EditPoll, DeletePoll, MyPolls, MyVotes, MyFeeds, MyProfile, UserContextProvider, IsAuthenticatedUser }
