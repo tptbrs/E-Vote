@@ -21,7 +21,7 @@ function App() {
               />
               <Route
                 path='dashboard'
-                element={<IsAuthenticatedUser><Dashoard /></IsAuthenticatedUser>}
+                element={<IsAuthenticatedUser><Dashboard /></IsAuthenticatedUser>}
               />
               <Route
                 path="create"
