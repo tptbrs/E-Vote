@@ -55,7 +55,12 @@ const EditPoll = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch(`${apiUrl}/poll/getPoll/${pollId}`);
+                const res = await fetch(`${apiUrl}/poll/getPoll/${pollId}`, {
+    method: 'GET',
+    headers: { "Content-Type": "application/json" },
+    credentials: 'include',
+});
+
                 const data = await res.json();
                 if (data.success) {
                     const fetchedData = data.poll;
