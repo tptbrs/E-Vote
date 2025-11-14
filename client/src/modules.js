@@ -14,7 +14,7 @@ export default function lazyLoad(path, namedExport) {
 
 import { UserContextProvider } from "./UserContext";
 
-const Layout = lazyLoad('./Layout.jsx');
+const Layout = lazyLoad('./Layout/index.jsx');
 const Home = lazyLoad("./pages/Home.jsx");
 const NoPage = lazyLoad("./pages/NoPage.jsx");
 const Login = lazyLoad("./pages/Login.jsx");
