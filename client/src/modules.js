@@ -1,32 +1,37 @@
 import { lazy } from 'react';
-export default function lazyLoad(path, namedExport) {
-    return lazy(() => {
-        const promise = import(`${path}`)
-        if (namedExport == null) {
-            return promise
-        } else {
-            return promise.then(module => ({
-                default: module[namedExport]
-            }))
-        }
-    })
-}
+import { UserContextProvider } from './UserContext';
 
-import { UserContextProvider } from "./UserContext";
-const Layout = lazyLoad('./Layout');
-const Home = lazyLoad("./pages/Home");
-const NoPage = lazyLoad("./pages/NoPage");
-const Login = lazyLoad("./pages/Login");
-const Signup = lazyLoad("./pages/Signup");
-const Poll = lazyLoad("./pages/Poll");
-const Dashoard = lazyLoad("./pages/Poll/Dashboard");
-const CreatePoll = lazyLoad("./pages/Poll/CreatePoll");
-const EditPoll = lazyLoad('./pages/Poll/EditPoll');
-const DeletePoll = lazyLoad('./pages/Poll/DeletePoll');
-const MyPolls = lazyLoad("./pages/Poll/MyPolls");
-const MyVotes = lazyLoad("./pages/Poll/MyVotes");
-const MyFeeds = lazyLoad('./pages/MyFeeds');
-const MyProfile = lazyLoad('./pages/MyProfile')
-const IsAuthenticatedUser = lazyLoad('./components/IsAuthenticatedUser');
+const Layout = lazy(() => import('./Layout'));
+const Home = lazy(() => import('./pages/Home'));
+const NoPage = lazy(() => import('./pages/NoPage'));
+const Login = lazy(() => import('./pages/Login'));
+const Signup = lazy(() => import('./pages/Signup'));
+const Poll = lazy(() => import('./pages/Poll'));
+const Dashboard = lazy(() => import('./pages/Poll/Dashboard'));
+const CreatePoll = lazy(() => import('./pages/Poll/CreatePoll'));
+const EditPoll = lazy(() => import('./pages/Poll/EditPoll'));
+const DeletePoll = lazy(() => import('./pages/Poll/DeletePoll'));
+const MyPolls = lazy(() => import('./pages/Poll/MyPolls'));
+const MyVotes = lazy(() => import('./pages/Poll/MyVotes'));
+const MyFeeds = lazy(() => import('./pages/MyFeeds'));
+const MyProfile = lazy(() => import('./pages/MyProfile'));
+const IsAuthenticatedUser = lazy(() => import('./components/IsAuthenticatedUser'));
 
-export { NoPage, Layout, Home, Login, Signup, Poll, Dashoard, CreatePoll, EditPoll, DeletePoll, MyPolls, MyVotes, MyFeeds, MyProfile, UserContextProvider, IsAuthenticatedUser }
+export {
+  NoPage,
+  Layout,
+  Home,
+  Login,
+  Signup,
+  Poll,
+  Dashboard,
+  CreatePoll,
+  EditPoll,
+  DeletePoll,
+  MyPolls,
+  MyVotes,
+  MyFeeds,
+  MyProfile,
+  UserContextProvider,
+  IsAuthenticatedUser
+};
