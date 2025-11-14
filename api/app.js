@@ -10,7 +10,14 @@ app.use(express.json()); //middleware to understand json
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 const cors = require("cors");
-app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://e-vote-frontend.onrender.com"
+  ],
+  credentials: true
+}));
+
 
 // //importing routes
 const user = require("./Router/userRoutes");
@@ -27,3 +34,4 @@ app.use('/api/v1/profile-image', express.static(__dirname + '/uploads/profile_im
 app.use(ErrorHandling);
 
 module.exports = app;
+
