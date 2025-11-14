@@ -6,11 +6,12 @@ import styles from '../../styles'
 
 const Home = () => {
   return (
-    <div className={`${styles.boxWidth}`}>
-      <Quote />
-      <Feature />
-      <Intro />
-    </div>
+    <div className="w-full">
+  <Quote />
+  <Feature />
+  <Intro />
+</div>
+
   )
 }
 
